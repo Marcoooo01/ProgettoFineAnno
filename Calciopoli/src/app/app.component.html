@@ -49,12 +49,16 @@
     </div>
     <div *ngIf="!LoginForm.valid" class="text-danger m-3"><h4>Il form per il login non è valido</h4></div>
       <h4 *ngIf="loginEffettuato" class="text-success mt-3 p-3">LOGIN EFFETTUATO</h4>
+      <h4 *ngIf="logoutEffettuato" class="text-danger mt-3 p-3">LOGOUT EFFETTUATO</h4>
       <h4 *ngIf="pwemailsbagliata" class="text-danger mt-3">PASSWORD/EMAIL SBAGLIATI</h4>
+      <button [disabled]="!schiacciaLogin" class="m-3 btn btn-danger btn-block btn-md w-25 float-right" type="submit" (click)="logout()">Logout</button>
       <button class="m-3 btn btn-success btn-block btn-md w-25 float-right" type="submit" [disabled]="!LoginForm.valid">Login</button>
   </form>
 </div>
 <hr>
-<div class="m-3 text-center">
+<button class="m-3 btn btn-success btn-block btn-md w-25 float-right" (click)="hidea(a)" type="submit" [disabled]="!l">SHOW/HIDE LISTA ALLENATORI</button>
+<br>
+<div class="m-3 text-center" *ngIf="a">
   <ul class="mt-5 list-group">
       <h3 class="text-danger text-center"><b>LISTA DEGLI ALLENATORI REGISTRATI</b></h3>
       <br>
@@ -65,7 +69,10 @@
 </div>
 <br>
 <hr>
-<app-post [nomeAllenatoreOnline]="nomeAllenatoreOnline" [cognomeAllenatoreOnline]="cognomeAllenatoreOnline" [squadra]="squadra" [emailAllenatoreOnline]="emailAllenatoreOnline"></app-post>
-<h4 *ngIf="logoutEffettuato" class="text-center text-danger m-1">LOGOUT EFFETTUATO</h4>
-<h1 *ngIf="schiacciaLogin" class="text-danger text-center" (click)="logout()">LOGOUT</h1>
+<button class="m-3 btn btn-success btn-block btn-md w-25 float-right" (click)="hideb(b)" type="submit" [disabled]="!l">SHOW/HIDE AGGIUNTA NUOVI CALCIATORI</button>
+<br>
+<br>
+<app-post *ngIf="b" [nomeAllenatoreOnline]="nomeAllenatoreOnline" [cognomeAllenatoreOnline]="cognomeAllenatoreOnline" [squadra]="squadra" [emailAllenatoreOnline]="emailAllenatoreOnline"></app-post>
+
+
 

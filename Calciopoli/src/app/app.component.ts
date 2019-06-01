@@ -22,6 +22,9 @@ export class AppComponent {
   loginEffettuato: boolean = false;
   registerEffettuato: boolean = false;
   pwemailsbagliata : boolean = false;
+  a : boolean = false;
+  b : boolean = false;
+  l : boolean = false;
 
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({'nome': ['', Validators.required], 'cognome': ['', Validators.required], 'squadra': ['', Validators.required], 'password': ['', Validators.required], 'email': ['', Validators.compose([Validators.required, Validators.email])]});
@@ -59,6 +62,7 @@ export class AppComponent {
               this.schiacciaLogin = true;
               this.loginEffettuato = true;
               this.pwemailsbagliata = false;
+              this.l = true;
               break;
             } else {
               this.pwemailsbagliata = true;
@@ -82,6 +86,23 @@ export class AppComponent {
         this.logoutEffettuato = true;
         this.schiacciaLogin = false;
         this.loginEffettuato = false;
+        this.l = false;
+    }
+
+    hidea(){
+        if (this.a == false){
+            this.a = true;
+        }else{
+            this.a = false;
+        }
+    }
+
+    hideb(){
+        if (this.b == false){
+            this.b = true;
+        }else{
+            this.b = false;
+        }
     }
 }
 
